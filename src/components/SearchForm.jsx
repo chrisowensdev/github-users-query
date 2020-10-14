@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import {  Route } from 'react-router-dom';
 import UserCardList from './UserCardList';
+import UserProfile from './UserProfile';
 
 class SearchForm extends Component {
     state = {
@@ -21,21 +23,25 @@ class SearchForm extends Component {
         this.setState({
             users: [...this.state.users, user]
         });
-        console.log(this.state.users);
     }
     
     render () {
         return (
             <>
-            <h1>Search Form</h1>
-            <form onSubmit={this._handleSubmit}>
-                <input 
-                    type="text" 
-                    onChange={event => this._handleChange(event.target.value)}
-                />
-                <button type="submit">Find User</button>
-            </form>
-            <UserCardList users={this.state.users}/>
+            <Route exact path="/">
+                <h1>Search Form</h1>
+                <form onSubmit={this._handleSubmit}>
+                    <input 
+                        type="text" 
+                        onChange={event => this._handleChange(event.target.value)}
+                    />
+                    <button type="submit">Find User</button>
+                </form>
+                <UserCardList users={this.state.users}/>
+            </Route>
+            <Route path="/user/:username">
+                <UserProfile users={this.state.users}/>
+            </Route>
             </>
         )
     }
