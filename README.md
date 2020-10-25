@@ -20,4 +20,5 @@ I had a little trouble trying to figure out where to exactly put the routing pie
 -   https://api.github.com/users/%5Busername%5D
 -   https://api.github.com/users/[username]/repos
 
+## Exercise
 https://gist.github.com/seanrreid/46b1e5e2234bcb89cafc5b14a77d7815
